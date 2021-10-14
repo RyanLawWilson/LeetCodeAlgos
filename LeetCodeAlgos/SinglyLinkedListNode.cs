@@ -14,54 +14,43 @@ namespace LeetCodeAlgos
             this.next = next;
         }
 
+        /// <summary>
+        /// Merge two linked lists into a single linked list.
+        /// </summary>
+        /// <param name="l1">Sorted linked list</param>
+        /// <param name="l2">Sorted linked list</param>
+        /// <returns>Merged sorted linked list</returns>
         public static SinglyLinkedListNode MergeTwoLists(SinglyLinkedListNode l1, SinglyLinkedListNode l2)
         {
-            if (l1 == null || l2 == null)
-            {
-                return l1 ?? l2;
-            }
+            if (l1 == null || l2 == null) return l1 ?? l2;
 
-            SinglyLinkedListNode head;
-            if (l1.val < l2.val)
-            {
-                head = new SinglyLinkedListNode(l1.val);
-                l1 = l1.next;
-            }
-            else
-            {
-                head = new SinglyLinkedListNode(l2.val);
-                l2 = l2.next;
-            }
+            SinglyLinkedListNode head = l1.val <= l2.val ? l1 : l2;
             SinglyLinkedListNode current = head;
+            SinglyLinkedListNode l1PlaceHolder = head == l1 ? l1.next : l1;
+            SinglyLinkedListNode l2PlaceHolder = head == l2 ? l2.next : l2;
 
-            while (l1 != null || l2 != null)
+            // If one of the pointers is null, stop looping.
+            while (l1PlaceHolder != null && l2PlaceHolder != null)
             {
-                Console.WriteLine($"l1: {l1?.val} l2: {l2?.val}");
-                if (l1 == null)
+                // Determine which value is smaller between pointer 1 and pointer 2.  current.next is set to
+                // the node that has the smaller value.  That node then goes to the next node in its
+                // respective linked list.
+                if (l1PlaceHolder.val <= l2PlaceHolder.val)
                 {
-                    head.next = l2;
-                    return head;
-                }
-                else if (l2 == null)
-                {
-                    head.next = l1;
-                    return head;
+                    current.next = l1PlaceHolder;
+                    l1PlaceHolder = l1PlaceHolder.next;
                 }
                 else
                 {
-                    if (l1.val < l2.val)
-                    {
-                        head.next = l1;
-                        l1 = l1.next;
-                    }
-                    else
-                    {
-                        head.next = l2;
-                        l2 = l2.next;
-                    }
+                    current.next = l2PlaceHolder;
+                    l2PlaceHolder = l2PlaceHolder.next;
                 }
-                head = head.next;
+
+                current = current.next;
             }
+
+            // Find the pointer that is not null and set current.next to that node.
+            current.next = l2PlaceHolder ?? l1PlaceHolder;
 
             return head;
         }
