@@ -78,16 +78,12 @@ namespace LeetCodeAlgos
 
             for (int i = 0; i < length - 1; i++)
             {
-                cur.next = new SinglyLinkedListNode(rand.Next(minRange, maxRange));
+                cur.next = new SinglyLinkedListNode(rand.Next(cur.val, maxRange));
                 cur = cur.next;
             }
 
             return head;
         }
-
-
-
-
 
 
 
@@ -99,7 +95,7 @@ namespace LeetCodeAlgos
             SinglyLinkedListNode cur = this;
             while (cur != null)
             {
-                sb.Append($"{cur.val} -> ");
+                sb.Append(string.Format("{0,2}{1}", cur.val, " -> "));
                 cur = cur.next;
             }
 
@@ -110,16 +106,16 @@ namespace LeetCodeAlgos
         public string ToString(string delimeter = "->")
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("[");
+            sb.Append("[ ");
 
             SinglyLinkedListNode cur = this;
             while (cur != null)
             {
-                sb.Append($"{cur.val}{delimeter}");
+                sb.Append(string.Format("{0,2}{1}", cur.val, delimeter));
                 cur = cur.next;
             }
 
-            sb.Append("null]");
+            sb.Append("null ]");
             return sb.ToString();
         }
     }
