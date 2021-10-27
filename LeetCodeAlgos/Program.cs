@@ -6,6 +6,13 @@ namespace LeetCodeAlgos
     {
         public static void Main(string[] args)
         {
+            MergeTwoLists();
+
+            Console.WriteLine();
+        }
+
+        private static void MergeTwoLists()
+        {
             var list1 = SinglyLinkedListNode.ReturnRandomLinkedList();
             var list2 = SinglyLinkedListNode.ReturnRandomLinkedList();
 
@@ -14,8 +21,6 @@ namespace LeetCodeAlgos
             var result = SinglyLinkedListNode.MergeTwoLists(list1, list2);
 
             Console.WriteLine($"Final result: {result}");
-
-            Console.WriteLine();
         }
     }
 }
