@@ -6,8 +6,13 @@ namespace LeetCodeAlgos
     {
         public static void Main(string[] args)
         {
-            MergeTwoLists();
+            Person[] searchForPeople = Genealogy.CreateGenealogyTree();
+            Person person1 = searchForPeople[0];
+            Person person2 = searchForPeople[1];
 
+            Console.WriteLine(Genealogy.AreThesePeopleRelated(person1, person2) ? "Yes" : "No");
+
+            //MergeTwoLists();
             Console.WriteLine();
         }
 

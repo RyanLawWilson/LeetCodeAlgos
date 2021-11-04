@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace treeProblem
+namespace LeetCodeAlgos
 {
     public class Genealogy
     {
@@ -17,8 +17,11 @@ namespace treeProblem
 
         private static bool DetermineIfRelative(Person traveler, Person destination, HashSet<Person> set)
         {
+            // if the traveler is the same as the destination or we've seen this person before, return true.
             if (traveler == destination || set.Contains(traveler)) return true;
+            if (traveler == null) return false;
 
+            // Add current person to the travel set.
             set.Add(traveler);
 
             return DetermineIfRelative(traveler.Mother, destination, set) || DetermineIfRelative(traveler.Father, destination, set);
@@ -52,7 +55,7 @@ namespace treeProblem
             List<Person> grandKids23 = family3Kids[2].HaveChildren(3);
 
 
-            return new Person[] { mom1, dad2 };
+            return new Person[] { grandKids12[1], mom1 };
 
             //// First Tree:
             //// Gen 2:

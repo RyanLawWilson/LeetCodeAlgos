@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace treeProblem
+namespace LeetCodeAlgos
 {
     public class Person
     {
@@ -15,12 +15,14 @@ namespace treeProblem
         public Person(Person spouse)
         {
             Spouse = spouse;
+            Name = Tools.GetRandomName();
         }
 
         public Person(Person mother, Person father)
         {
             Mother = mother;
             Father = father;
+            Name = Tools.GetRandomName();
         }
 
         public Person(Person mother, Person father, Person spouse) : this(mother, father)
