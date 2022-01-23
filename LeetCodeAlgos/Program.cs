@@ -8,7 +8,7 @@ namespace LeetCodeAlgos
         {
 
 
-
+            PerformMinStackOperations();  // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/min-stack/
             //AreThesePeopleRelated();      // This is not a Leetcode question; it is a question that was given to Nicson in his Microsoft interview
             //MergeTwoLists();              // Leetcode problem
             Console.WriteLine();
@@ -18,7 +18,44 @@ namespace LeetCodeAlgos
 
 
 
+        private static void PerformMinStackOperations()
+        {
+            Console.WriteLine("Minimum Stack");
 
+            int valueRange_min = -10;   // Exclusive upper bound
+            int valueRange_max = 100;
+            int numberOfOperations = 10;
+
+            string[] possibleOperations = new string[] { "Push", "Pop", "Top", "GetMin" };
+
+            Random rand = new Random();
+
+            MinStack minstack = new MinStack();
+
+            // Perform random operations on the min stack.
+            for (int i = 0; i < numberOfOperations; i++)
+            {
+                string op = possibleOperations[rand.Next(0, possibleOperations.Length)];
+                switch (op)
+                {
+                    case "Push":
+                        int randNum = rand.Next(valueRange_min, valueRange_max);
+                        Console.WriteLine($"Pushing {randNum}");
+                        minstack.Push(randNum);
+                        break;
+                    case "Pop":
+                        Console.WriteLine($"Popping from stack");
+                        minstack.Pop();
+                        break;
+                    case "Top":
+                        Console.WriteLine($"Stack's top value is {minstack.Top()}");
+                        break;
+                    case "GetMin":
+                        Console.WriteLine($"Stack's min value is {minstack.GetMin()}");
+                        break;
+                }
+            }
+        }
 
         private static void AreThesePeopleRelated()
         {
