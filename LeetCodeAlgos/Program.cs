@@ -6,14 +6,28 @@ namespace LeetCodeAlgos
     {
         public static void Main(string[] args)
         {
+
+
+
+            //AreThesePeopleRelated();      // This is not a Leetcode question; it is a question that was given to Nicson in his Microsoft interview
+            //MergeTwoLists();              // Leetcode problem
+            Console.WriteLine();
+        }
+
+
+
+
+
+
+
+        private static void AreThesePeopleRelated()
+        {
             Person[] searchForPeople = Genealogy.CreateGenealogyTree();
             Person person1 = searchForPeople[0];
             Person person2 = searchForPeople[1];
 
+            Console.Write("Are these people related?: ");
             Console.WriteLine(Genealogy.AreThesePeopleRelated(person1, person2) ? "Yes" : "No");
-
-            //MergeTwoLists();
-            Console.WriteLine();
         }
 
         private static void MergeTwoLists()

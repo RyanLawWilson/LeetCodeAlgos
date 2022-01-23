@@ -55,7 +55,7 @@ namespace LeetCodeAlgos
             List<Person> grandKids23 = family3Kids[2].HaveChildren(3);
 
 
-            return new Person[] { grandKids12[1], mom1 };
+            return new Person[] { grandKids23[1], mom1 };
 
             //// First Tree:
             //// Gen 2:
