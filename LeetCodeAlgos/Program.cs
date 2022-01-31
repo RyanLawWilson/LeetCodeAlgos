@@ -7,11 +7,17 @@ namespace LeetCodeAlgos
         public static void Main(string[] args)
         {
 
-            Console.WriteLine($"1^2: {1 ^ 2}");
-            Console.WriteLine($"2^1: {2 ^ 1}");
-            Console.WriteLine($"1^1: {1 ^ 1}");
-            Console.WriteLine($"2^2: {2 ^ 2}");
 
+            IsIntegerAPalindrome();
+
+
+
+            //Console.WriteLine($"1^2: {1 ^ 2}");
+            //Console.WriteLine($"2^1: {2 ^ 1}");
+            //Console.WriteLine($"1^1: {1 ^ 1}");
+            //Console.WriteLine($"2^2: {2 ^ 2}");
+
+            //IsIntegerAPalindrome();       // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/palindrome-number/
             //IsTreeHeightBalanced();       // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/balanced-binary-tree/
             //FindSingleNumberInArray();    // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/single-number/
             //PerformMinStackOperations();  // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/min-stack/
@@ -22,7 +28,13 @@ namespace LeetCodeAlgos
 
 
 
+        private static void IsIntegerAPalindrome()
+        {
+            PalindromeTester pal = new PalindromeTester(123454321);
 
+            pal.IsPalindrome();
+
+        }
 
         private static void PerformMinStackOperations()
         {
