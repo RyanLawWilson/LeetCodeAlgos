@@ -7,8 +7,14 @@ namespace LeetCodeAlgos
         public static void Main(string[] args)
         {
 
+            Console.WriteLine($"1^2: {1 ^ 2}");
+            Console.WriteLine($"2^1: {2 ^ 1}");
+            Console.WriteLine($"1^1: {1 ^ 1}");
+            Console.WriteLine($"2^2: {2 ^ 2}");
 
-            PerformMinStackOperations();  // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/min-stack/
+            //IsTreeHeightBalanced();       // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/balanced-binary-tree/
+            //FindSingleNumberInArray();    // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/single-number/
+            //PerformMinStackOperations();  // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/min-stack/
             //AreThesePeopleRelated();      // This is not a Leetcode question; it is a question that was given to Nicson in his Microsoft interview
             //MergeTwoLists();              // Leetcode problem
             Console.WriteLine();
