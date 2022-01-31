@@ -7,8 +7,7 @@ namespace LeetCodeAlgos
         public static void Main(string[] args)
         {
 
-
-            IsIntegerAPalindrome();
+            GetLengthOfLastWord();
 
 
 
@@ -17,6 +16,7 @@ namespace LeetCodeAlgos
             //Console.WriteLine($"1^1: {1 ^ 1}");
             //Console.WriteLine($"2^2: {2 ^ 2}");
 
+            //GetLengthOfLastWord();        // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/length-of-last-word/
             //IsIntegerAPalindrome();       // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/palindrome-number/
             //IsTreeHeightBalanced();       // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/balanced-binary-tree/
             //FindSingleNumberInArray();    // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/single-number/
@@ -27,6 +27,12 @@ namespace LeetCodeAlgos
         }
 
 
+        private static void GetLengthOfLastWord()
+        {
+            Sentence s = new Sentence("       Hello     World  adf a a a a a aa dfadsf asdf asdfasdfasdfa s  ");
+
+            Console.WriteLine($"Sentence: {s.sentence}\nLength of last word: {s.LengthOfLastWord()}\n");
+        }
 
         private static void IsIntegerAPalindrome()
         {
