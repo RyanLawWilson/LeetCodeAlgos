@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace LeetCodeAlgos
 {
@@ -6,16 +7,30 @@ namespace LeetCodeAlgos
     {
         public static void Main(string[] args)
         {
-
-            GetLengthOfLastWord();
-
+            
 
 
-            //Console.WriteLine($"1^2: {1 ^ 2}");
-            //Console.WriteLine($"2^1: {2 ^ 1}");
-            //Console.WriteLine($"1^1: {1 ^ 1}");
-            //Console.WriteLine($"2^2: {2 ^ 2}");
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //RestoreString("codeleet", new int[] { 4,5,6,7,0,2,1,3 });
+            //AddBinaryNumbers();           
             //GetLengthOfLastWord();        // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/length-of-last-word/
             //IsIntegerAPalindrome();       // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/palindrome-number/
             //IsTreeHeightBalanced();       // Leetcode problem for our Sunday meeting on 1/23/2022: https://leetcode.com/problems/balanced-binary-tree/
@@ -26,6 +41,64 @@ namespace LeetCodeAlgos
             Console.WriteLine();
         }
 
+        private static string RestoreString(string s, int[] indices)
+        {
+            char[] res = new char[s.Length];
+
+            //StringBuilder result = new StringBuilder();
+            for (int i = 0; i < indices.Length; i++)
+            {
+                res[indices[i]] = s[i];
+            }
+
+            return new string(res);
+        }
+
+        private static void AddBinaryNumbers()
+        {
+            string a = "111011";
+            string b = "1010";
+
+            int aLength = a.Length;
+            int bLength = b.Length;
+
+            if (aLength > bLength)
+            {
+                b = new string('0', aLength - bLength) + b;
+            }
+            else
+            {
+                a = new string('0', bLength - aLength) + a;
+            }
+
+            StringBuilder answer = new StringBuilder("");
+            int carry = 0;
+
+            for (int i = a.Length - 1; i >= 0; i--)
+            {
+                int decimalSum = (int)char.GetNumericValue(a[i]) + (int)char.GetNumericValue(b[i]) + carry;
+
+                switch (decimalSum)
+                {
+                    case 0:
+                        carry = 0;
+                        answer.Append("0");
+                        break;
+                    case 1:
+                        carry = 0;
+                        answer.Append("1");
+                        break;
+                    case 2:
+                        carry = 1;
+                        answer.Append("0");
+                        break;
+                    case 3:
+                        carry = 1;
+                        answer.Append("1");
+                        break;
+                }
+            }
+        }
 
         private static void GetLengthOfLastWord()
         {
