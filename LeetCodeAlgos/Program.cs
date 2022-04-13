@@ -7,29 +7,9 @@ namespace LeetCodeAlgos
     {
         public static void Main(string[] args)
         {
-            
+            FindLevelForSanta();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //RestoreString("codeleet", new int[] { 4,5,6,7,0,2,1,3 });
+            //GetRandSumBST();
             //AddBinaryNumbers();           
             //GetLengthOfLastWord();        // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/length-of-last-word/
             //IsIntegerAPalindrome();       // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/palindrome-number/
@@ -41,8 +21,66 @@ namespace LeetCodeAlgos
             Console.WriteLine();
         }
 
+        private static void FindLevelForSanta()
+        {
+            // Advent of Code | 2015 | Day 1: Not Quite Lisp | pt1, pt2
+            string data = FileReader.ReadFile("Day1Input.txt");
+
+            int floor = 0;
+            bool firstCharacterHit = false;
+            int firstCharacter_index = 0;
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] == '(') 
+                {
+                    floor++;
+                    continue;
+                }
+
+                floor--;
+                if (floor < 0 && !firstCharacterHit)
+                {
+                    firstCharacter_index = i;
+                    firstCharacterHit = !firstCharacterHit;
+                }
+            }
+
+            Console.WriteLine($"Floor Santa needs to go to: {floor}");
+            Console.WriteLine($"Position where Santa enters basement: {firstCharacter_index + 1}");
+        }
+
+
+
+        private static void GetRandSumBST()
+        {
+            TreeNode root = new TreeNode(10,
+                            new TreeNode(5, new TreeNode(3), new TreeNode(7)), new TreeNode(15, null, new TreeNode(18)));
+
+            RangeSumBST(root, 7, 15);                  // Leetcode problem for our Tuesday meeting on 3/15/2022: https://leetcode.com/problems/range-sum-of-bst/
+        }
+
+        public static int RangeSumBST(TreeNode root, int low, int high)
+        {
+            return FindSumBetween(root, low, high);
+        }
+
+        private static int FindSumBetween(TreeNode node, int low, int high)
+        {
+            if (node == null) { return 0; }
+
+            // Base Case
+            if (node.val >= low && node.val <= high)
+            {
+                return FindSumBetween(node.left, low, high) + FindSumBetween(node.right, low, high) + node.val;
+            }
+
+            return FindSumBetween(node.left, low, high) + FindSumBetween(node.right, low, high);
+        }
+
         private static string RestoreString(string s, int[] indices)
         {
+            //RestoreString("codeleet", new int[] { 4,5,6,7,0,2,1,3 });
             char[] res = new char[s.Length];
 
             //StringBuilder result = new StringBuilder();
