@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Linq;
 
 namespace LeetCodeAlgos
 {
@@ -7,8 +8,50 @@ namespace LeetCodeAlgos
     {
         public static void Main(string[] args)
         {
-            FindLevelForSanta();
+            string data = FileReader.ReadFile("Day2Input.txt");
+            string[] boxes = data.Split('\n');
 
+            Console.WriteLine();
+
+            int wrappingPaperNeeded = 0;
+
+            foreach (string box in boxes)
+            {
+                string[] s = box.Split('x');
+                int[] dim = { Convert.ToInt32(s[0]), Convert.ToInt32(s[1]), Convert.ToInt32(s[2]) };
+                int[] sAreas = { dim[0] * dim[1], dim[1] * dim[2], dim[0] * dim[2] };
+
+                wrappingPaperNeeded += sAreas.Sum(x => 2 * x) + sAreas.Min();
+            }
+
+            Console.WriteLine(wrappingPaperNeeded);
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //FindLevelForSanta();
             //GetRandSumBST();
             //AddBinaryNumbers();           
             //GetLengthOfLastWord();        // Leetcode problem for our Sunday meeting on 1/30/2022: https://leetcode.com/problems/length-of-last-word/
@@ -39,6 +82,11 @@ namespace LeetCodeAlgos
                 }
 
                 floor--;
+
+
+
+
+
                 if (floor < 0 && !firstCharacterHit)
                 {
                     firstCharacter_index = i;
@@ -49,8 +97,6 @@ namespace LeetCodeAlgos
             Console.WriteLine($"Floor Santa needs to go to: {floor}");
             Console.WriteLine($"Position where Santa enters basement: {firstCharacter_index + 1}");
         }
-
-
 
         private static void GetRandSumBST()
         {
